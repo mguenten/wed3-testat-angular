@@ -25,16 +25,10 @@ const EXPORTS = [
   exports: EXPORTS,
   providers: [
     // DI Providers (hierarchical)
-    // (Services, Tokens, Factories, ...) used from/within this Module; add either here or in forRoot();
+    // (Services, Tokens, Factories, ...) used from/within this Module
     //  * Registers these Classes for the current Module; importing Modules will create new instances (for importing level and below)
   ]
 })
 export class DashboardModule {
-  static forRoot(config?: {}): ModuleWithProviders {
-    return {
-      ngModule: DashboardModule,
-      providers: [ ]
-    };
-  }
-
+  // Do not add forRoot(), static references to this module from the Root/App Module will prevent lazy loading!
 }
