@@ -1,7 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {LoginComponent, RegisterComponent} from '../auth/components';
+import {RegisterComponent} from '../auth/components/register.component';
+import {LoginComponent} from '../auth/components/login.component';
+
 import {WelcomeComponent} from './welcome.component';
 
 const appRoutes: Routes = [
@@ -10,8 +12,8 @@ const appRoutes: Routes = [
     component: WelcomeComponent,
     // TODO: Add guard and routing (Register/Login) here...
     children: [
-      { path: 'register', component: RegisterComponent },
-      { path: '', component: LoginComponent }
+      {path: 'register', component: RegisterComponent},
+      {path: '', component: LoginComponent}
     ]
   }
 ];
@@ -24,4 +26,5 @@ const appRoutes: Routes = [
     RouterModule
   ]
 })
-export class WelcomeRoutingModule {}
+export class WelcomeRoutingModule {
+}

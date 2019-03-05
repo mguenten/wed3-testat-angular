@@ -2,10 +2,10 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 
-import {NavigationService} from '../../core';
+import {NavigationService} from '@app/core';
 
-import {AuthService} from '../services';
-import {LoginInfo} from '../models';
+import {AuthService} from '../services/auth.service';
+import {LoginInfo} from '../models/login-info';
 
 @Component({
   selector: 'wed-login',
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private autSvc: AuthService, private navigationSvc: NavigationService, route: ActivatedRoute) {
     route.params.subscribe(
-      (p: Params) => this.backUrl = p['backUrl']);
+      (p: Params) => this.backUrl = p.backUrl);
   }
 
   ngOnInit() {

@@ -1,10 +1,11 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
 
-import {SharedModule} from '../shared/shared.module';
+import {SharedModule} from '@app/shared';
+
+import {AuthModule} from '../auth/auth.module';
 
 import {WelcomeRoutingModule} from './welcome-routing.module';
 import {WelcomeComponent} from './welcome.component';
-import {AuthModule} from '../auth/auth.module';
 
 const EXPORTED_DECLARATIONS = [
   // Declarations (Components / Directives) which can be used outside the Module
@@ -25,13 +26,13 @@ const EXPORTS = [
     WelcomeRoutingModule, SharedModule, AuthModule
   ],
   exports: EXPORTS,
-  providers: [ ]
+  providers: []
 })
 export class WelcomeModule {
   static forRoot(config?: {}): ModuleWithProviders {
     return {
       ngModule: WelcomeModule,
-      providers: [ ]
+      providers: []
     };
   }
 

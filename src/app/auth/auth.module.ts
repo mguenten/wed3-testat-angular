@@ -2,12 +2,18 @@ import {NgModule, ModuleWithProviders} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
-import {AuthService, SecurityTokenStore} from './services';
-import {AuthResourceService, TokenInterceptor} from './resources';
+import {SharedModule} from '@app/shared';
 
-import {LoginComponent, LogoutComponent,
-  RegisterComponent} from './components';
-import {SharedModule} from '../shared/shared.module';
+import {LoginComponent} from './components/login.component';
+import {LogoutComponent} from './components/logout.component';
+import {RegisterComponent} from './components/register.component';
+
+import {TokenInterceptor} from './resources/token-interceptor';
+import {AuthResourceService} from './resources/auth-resource.service';
+
+import {SecurityTokenStore} from './services/credential-management/security-token-store';
+import {AuthService} from './services/auth.service';
+
 
 const EXPORTED_DECLARATIONS = [
   LoginComponent, LogoutComponent, RegisterComponent
@@ -28,7 +34,7 @@ const EXPORTS = [
     SharedModule
   ],
   exports: EXPORTS,
-  providers: [ AuthResourceService ]
+  providers: [AuthResourceService]
 })
 export class AuthModule {
   static forRoot(config?: {}): ModuleWithProviders {

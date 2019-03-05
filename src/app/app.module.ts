@@ -1,15 +1,15 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {NgModule} from '@angular/core';
 
-import {CoreModule} from './core/core.module';
+import {CoreModule} from '@app/core';
+
 import {WelcomeModule} from './welcome/welcome.module';
-
-import {AppComponent} from './app.component';
+import {AuthModule} from './auth/auth.module';
 
 import {AppRoutingModule} from './app-routing.module';
-import {AuthModule} from './auth/auth.module';
+import {AppComponent} from './app.component';
 
 
 @NgModule({
@@ -27,9 +27,8 @@ import {AuthModule} from './auth/auth.module';
 
     AppRoutingModule
   ],
-  providers: [
-
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

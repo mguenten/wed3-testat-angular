@@ -1,13 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 
-import {Observable} from 'rxjs/Observable';
-import {map, catchError} from 'rxjs/operators';
-import {of} from 'rxjs/observable/of';
+import {Observable, of} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
 
-import {ResourceBase} from '../../core';
+import {ResourceBase} from '@app/core';
 
-import {LoginInfo, Account, RegistrationInfo, Credential} from '../models';
+import {RegistrationInfo} from '../models/registration-info';
+import {Account} from '../models/account';
+import {LoginInfo} from '../models/login-info';
+import {Credential} from '../models/credential';
 
 
 @Injectable()

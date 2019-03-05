@@ -1,14 +1,14 @@
 import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 
-import {environment} from '../../../environments/environment';
+import {environment} from '@env/environment';
 
 export abstract class ResourceBase {
 
   static JSON_HEADERS = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json'
+      'Content-Type': 'application/json'
     })
   };
 

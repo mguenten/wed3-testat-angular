@@ -1,11 +1,15 @@
 import {Injectable, EventEmitter} from '@angular/core';
 
-import {isBlank} from '../../core';
+import {isBlank} from '@app/core';
 
-import {AuthResourceService} from '../resources';
-import {LoginInfo, RegistrationInfo, Credential, Account} from '../models';
+import {Account} from '../models/account';
+import {RegistrationInfo} from '../models/registration-info';
+import {LoginInfo} from '../models/login-info';
+import {Credential} from '../models/credential';
+import {AuthResourceService} from '../resources/auth-resource.service';
 
-import {SecurityTokenStore} from './credential-management';
+import {SecurityTokenStore} from './credential-management/security-token-store';
+
 
 @Injectable()
 export class AuthService {
@@ -32,16 +36,16 @@ export class AuthService {
     this.resource.register(registerModel).subscribe(
       (data: Account) => {
         this.login(registerModel);
-      } );
+      });
   }
 
-  public login(loginModel: LoginInfo):void {
+  public login(loginModel: LoginInfo): void {
     this.resource.login(loginModel).subscribe(
       (data: Credential) => {
         this.tokenStore.storedValue = data;
         this.authUser = !isBlank(data) ? data.owner : null;
         this.authenticatedUserChange.emit(this.authenticatedUser);
-      } );
+      });
   }
 
   public logout(): void {

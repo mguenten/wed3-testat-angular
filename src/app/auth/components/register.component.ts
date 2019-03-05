@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
 
-import {NavigationService} from '../../core';
+import {NavigationService} from '@app/core';
 
-import {AuthService} from '../services';
-import {RegistrationInfo} from '../models';
+import {AuthService} from '../services/auth.service';
+import {RegistrationInfo} from '../models/registration-info';
 
 @Component({
   selector: 'wed-register',
