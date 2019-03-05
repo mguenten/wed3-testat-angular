@@ -17,7 +17,6 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [
         // DI Providers (Services, Tokens, Factories...) to be used globally and instantiated only once
-        NavigationService
       ]
     };
   }

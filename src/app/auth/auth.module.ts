@@ -44,7 +44,6 @@ export class AuthModule {
         // DI Providers (Services, Tokens, Factories...) to be used globally and instantiate only once
 
         // TODO: Add services/guards/... here, if additional classes are placed within the Auth moduley
-        AuthService,
         SecurityTokenStore,
         {
           provide: HTTP_INTERCEPTORS,

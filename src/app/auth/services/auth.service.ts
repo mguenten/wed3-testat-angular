@@ -11,7 +11,7 @@ import {AuthResourceService} from '../resources/auth-resource.service';
 import {SecurityTokenStore} from './credential-management/security-token-store';
 
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AuthService {
 
   public authenticatedUserChange: EventEmitter<Account> = new EventEmitter<Account>();
