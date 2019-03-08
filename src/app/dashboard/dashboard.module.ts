@@ -13,7 +13,7 @@ const INTERNAL_DECLARATIONS = [
 ];
 const EXPORTS = [
   ...EXPORTED_DECLARATIONS
-  // Components/Directives (or even Modules) to export (available for other modules; and forRoot() )
+  // Components/Directives (or even Modules) to export (available for other modules)
 ];
 
 @NgModule({

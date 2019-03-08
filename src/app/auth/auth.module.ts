@@ -12,7 +12,6 @@ import {TokenInterceptor} from './resources/token-interceptor';
 import {AuthResourceService} from './resources/auth-resource.service';
 
 import {SecurityTokenStore} from './services/credential-management/security-token-store';
-import {AuthService} from './services/auth.service';
 
 
 const EXPORTED_DECLARATIONS = [
