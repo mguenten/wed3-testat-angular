@@ -14,7 +14,7 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  // TODO:
+  // TODO: (optional)
   // Add e2e tests here... Examples:
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
