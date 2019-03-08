@@ -2,8 +2,6 @@ import {NgModule, ModuleWithProviders, SkipSelf, Optional, forwardRef} from '@an
 
 import {SharedModule} from '@app/shared';
 
-import {NavigationService} from './services/navigation.service';
-
 @NgModule({
   declarations: [],
   imports: [SharedModule],
@@ -16,7 +14,8 @@ export class CoreModule {
     return {
       ngModule: CoreModule,
       providers: [
-        // DI Providers (Services, Tokens, Factories...) to be used globally and instantiated only once
+        // DI Multi-Providers (Services, Tokens, Factories...) to be used globally and instantiated only once.
+        // For Single-Providers use {providedIn: 'root'} instead.
       ]
     };
   }
