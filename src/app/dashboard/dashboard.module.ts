@@ -1,8 +1,13 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
 
 import {SharedModule} from '@app/shared';
 
+import {AuthModule} from '../auth/auth.module';
+
 import {DashbaordRoutingModule} from './dashboard-routing.module';
+
 
 const EXPORTED_DECLARATIONS = [
   // Declarations (Components / Directives) which can be used outside the Module
@@ -20,7 +25,8 @@ const EXPORTS = [
   declarations: INTERNAL_DECLARATIONS,
   imports: [
     // Other Modules to import (imports the exported Components/Directives from the other module)
-    SharedModule, DashbaordRoutingModule
+    SharedModule, CommonModule, FormsModule,
+    AuthModule, DashbaordRoutingModule
   ],
   exports: EXPORTS,
   providers: [

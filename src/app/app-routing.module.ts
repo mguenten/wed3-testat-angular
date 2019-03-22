@@ -2,9 +2,13 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 const appRoutes: Routes = [
-  // TODO: Add routing of lazy loaded dashboard Module (with guards) here...
+  {
+    path: 'dashboard',
+    loadChildren: './dashboard/dashboard.module#DashboardModule',
+    canLoad: [ ] // TODO: Add guard for lazy loaded Dashboard module here...
+  },
 
-  // TODO: Add routing of eagerly loaded modules here...
+  // Welcome module is eagerly loaded.
   {path: '', redirectTo: '/welcome', pathMatch: 'full'}
 ];
 
