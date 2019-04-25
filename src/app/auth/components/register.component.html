@@ -1,39 +1,48 @@
 <!-- TODO: Add ng specific directives/validation settings and add styling -->
-<form (ngSubmit)="doRegister(null)">
-  <label>
-    First name:
-    <div>
-      <input pattern=".{2,}" placeholder="First name" type="text" name="firstname">
-      <div>Please specify your first name.</div>
-    </div>
-  </label>
-  <label>
-    Last name:
-    <div>
-      <input pattern=".{2,}" placeholder="Last name" type="text" name="lastname">
-      <div>Please specify your last name.</div>
-    </div>
-  </label>
-  <label>
-    User name:
-    <div>
-      <input pattern=".{3,}" placeholder="User" type="text" name="login">
-      <div>Please specify your login, at least three characters.</div>
-    </div>
-  </label>
-  <label>
-    Password:
-    <div>
-      <input pattern=".{3,}" placeholder="Password" type="password" name="password">
-      <div>Please specify your password, at least three characters.</div>
-    </div>
-  </label>
-  <label>
-    Confirm Password:
-    <div>
-      <input pattern=".{3,}" placeholder="Password" type="password" name="passwordConfirm">
-      <div>Please confirm your password.</div>
-    </div>
-  </label>
-  <button>Register</button>
-</form>
+
+<div style=" height: 73vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+">
+
+  <mat-card class="example-card">
+
+    <mat-card-title>
+      <span>Register</span>
+    </mat-card-title>
+
+    <mat-card-content>
+
+      <form (ngSubmit)="doRegister(null)">
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput pattern=".{2,}" placeholder="First name" type="text" name="firstname" required>
+        </mat-form-field><br>
+
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput pattern=".{2,}" placeholder="Last name" type="text" name="lastname" required>
+        </mat-form-field><br>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput pattern=".{3,}" placeholder="User" type="text" name="login" required>
+        </mat-form-field><br>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput pattern=".{3,}" placeholder="Password" type="password" name="password" required>
+        </mat-form-field><br>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput pattern=".{3,}" placeholder="Password" type="password" name="passwordConfirm" required>
+        </mat-form-field>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">Register</button> <a href="/welcome" class="md-accent" style="float:right;">Login</a>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+
+
+  </mat-card>
+
+</div>
