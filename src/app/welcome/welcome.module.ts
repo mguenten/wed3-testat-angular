@@ -7,6 +7,11 @@ import {AuthModule} from '../auth/auth.module';
 import {WelcomeRoutingModule} from './welcome-routing.module';
 import {WelcomeComponent} from './welcome.component';
 
+
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 const EXPORTED_DECLARATIONS = [
   // Declarations (Components / Directives) which can be used outside the Module
   WelcomeComponent
@@ -23,7 +28,8 @@ const EXPORTS = [
 @NgModule({
   declarations: INTERNAL_DECLARATIONS,
   imports: [
-    WelcomeRoutingModule, SharedModule, AuthModule
+    WelcomeRoutingModule, SharedModule, AuthModule,
+    MatMenuModule, MatIconModule, MatToolbarModule
   ],
   exports: EXPORTS,
   providers: []

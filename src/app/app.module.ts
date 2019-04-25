@@ -15,6 +15,8 @@ import {AuthModule} from './auth/auth.module';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
+import { MatButtonModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {AppComponent} from './app.component';
     AuthModule.forRoot(),
     WelcomeModule.forRoot(),
 
-    AppRoutingModule
+    AppRoutingModule,
+
+    MatButtonModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'de-CH'}

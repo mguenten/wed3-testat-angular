@@ -13,6 +13,14 @@ import {AuthResourceService} from './resources/auth-resource.service';
 
 import {SecurityTokenStore} from './services/credential-management/security-token-store';
 
+import { MatButtonModule } from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 const EXPORTED_DECLARATIONS = [
   LoginComponent, LogoutComponent, RegisterComponent
@@ -30,7 +38,14 @@ const EXPORTS = [
   declarations: INTERNAL_DECLARATIONS,
   imports: [
     FormsModule,
-    SharedModule
+    SharedModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatTabsModule
   ],
   exports: EXPORTS,
   providers: [AuthResourceService]

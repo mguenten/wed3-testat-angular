@@ -1,2 +1,28 @@
-TODO: implement your components / html logic here...
+<!--TODO: implement your components / html logic here... -->
+<mat-toolbar color="primary">
+
+  <mat-toolbar-row>
+
+    <span>Online-Banking</span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="align-center"></span>
+    <span class="example-spacer"></span>
+    <a mat-menu-item>
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </a>
+    <a mat-menu-item>
+      <mat-icon>transform</mat-icon>
+      <span>Transactions</span>
+    </a>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+
+  </mat-toolbar-row>
+</mat-toolbar>
 <router-outlet></router-outlet>

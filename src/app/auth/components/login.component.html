@@ -1,18 +1,62 @@
 <!-- TODO: Add ng specific directives/validation settings and add styling -->
-<form (ngSubmit)="doLogin(null)">
+<!-- TODO: mat-tab has to be moved to different file-->
+<!-- TODO: width is static in "style" (320px) -->
+
+<!--<form (ngSubmit)="doLogin(null)">
   <label>
-    User name:
     <div>
-      <input pattern=".{3,}" placeholder="User" type="text" name="login">
-      <div>Please specify your login, at least three characters.</div>
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput pattern=".{3,}" placeholder="User" type="text" name="login">
+      </mat-form-field>
+      <p class="mat-body-1">Please specify your login, at least three characters.</p>
     </div>
   </label>
   <label>
-    Password:
     <div>
-      <input pattern=".{3,}" placeholder="Password" type="password" name="password">
-      <div>Please specify your login, at least three characters.</div>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput pattern=".{3,}" placeholder="Password" type="password" name="password">
+      </mat-form-field>
+      <p class="mat-body-1">Please specify your login, at least three characters.</p>
     </div>
   </label>
-  <button>Login</button>
+  <button mat-button>Login</button>
+
 </form>
+-->
+
+<div style="width:320px;margin-left:auto;margin-right:auto;">
+<mat-tab-group>
+  <mat-tab label="Login">
+
+
+<mat-card class="example-card">
+
+
+  <mat-card-content>
+    <form class="example-form">
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput pattern=".{3,}" placeholder="User" type="text" name="login" required>
+      </mat-form-field><br>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput pattern=".{3,}" placeholder="Password" type="password" name="password" required>
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">Login</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+
+
+</mat-card>
+
+  </mat-tab>
+  <mat-tab label="Register">
+
+  </mat-tab>
+</mat-tab-group>
+
+</div>
