@@ -16,11 +16,13 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
 import { MatButtonModule } from '@angular/material';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,

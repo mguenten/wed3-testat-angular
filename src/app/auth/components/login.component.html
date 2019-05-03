@@ -40,7 +40,7 @@
   </mat-card-title>
 
   <mat-card-content>
-    <form (ngSubmit)="doLogin(null)">
+    <form (ngSubmit)="doLogin(LoginForm)" #loginForm="ngForm">
       <mat-form-field>
         <mat-label>Username</mat-label>
         <input matInput pattern=".{3,}" placeholder="User" type="text" name="login" required>
@@ -50,7 +50,7 @@
         <input matInput pattern=".{3,}" placeholder="Password" type="password" name="password" required>
       </mat-form-field>
       <mat-card-actions>
-        <button mat-raised-button color="primary">Login</button> <a href="/welcome/register" class="md-accent" style="float:right;">Register</a>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.form.valid">Login</button> <a type="button" routerLink="/welcome/register" class="md-accent" style="float:right;">Register</a>
       </mat-card-actions>
     </form>
   </mat-card-content>
