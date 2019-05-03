@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+import {RegisterComponent} from './auth/components/register.component';
 
 const appRoutes: Routes = [
   {
@@ -9,7 +10,9 @@ const appRoutes: Routes = [
   },
 
   // Welcome module is eagerly loaded.
-  {path: '', redirectTo: '/welcome', pathMatch: 'full'}
+  {path: '', redirectTo: '/welcome', pathMatch: 'full'},
+
+  {path: 'signup', component: RegisterComponent}
 ];
 
 @NgModule({

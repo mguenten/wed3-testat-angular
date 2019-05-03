@@ -17,12 +17,17 @@ import {AppComponent} from './app.component';
 
 import { MatButtonModule } from '@angular/material';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,10 @@ import { TransactionsComponent } from './transactions/transactions.component';
 
     AppRoutingModule,
 
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatMenuModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'de-CH'}
