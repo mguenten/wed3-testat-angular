@@ -42,7 +42,6 @@ const EXPORTS = [
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserAnimationsModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatTabsModule

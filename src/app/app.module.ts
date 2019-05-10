@@ -3,7 +3,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {LOCALE_ID, NgModule} from '@angular/core';
 
-import {registerLocaleData} from '@angular/common';
+import {CommonModule, registerLocaleData} from '@angular/common';
 import localeDeCH from '@angular/common/locales/de-CH';
 import localeDeCHExtra from '@angular/common/locales/extra/de-CH';
 
@@ -21,6 +21,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -31,6 +32,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    CommonModule,
     FormsModule,
     HttpClientModule,
 

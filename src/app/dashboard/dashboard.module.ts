@@ -7,12 +7,14 @@ import {SharedModule} from '@app/shared';
 import {AuthModule} from '../auth/auth.module';
 
 import {DashbaordRoutingModule} from './dashboard-routing.module';
+import {DashboardComponent} from './components/dashboard.component';
 
 
 const EXPORTED_DECLARATIONS = [
   // Declarations (Components / Directives) which can be used outside the Module
 ];
 const INTERNAL_DECLARATIONS = [
+    DashboardComponent,
   ...EXPORTED_DECLARATIONS
   // Declarations (Components / Directives) which can be used inside the Module
 ];
@@ -25,7 +27,7 @@ const EXPORTS = [
   declarations: INTERNAL_DECLARATIONS,
   imports: [
     // Other Modules to import (imports the exported Components/Directives from the other module)
-    SharedModule, CommonModule, FormsModule,
+    SharedModule, FormsModule,
     AuthModule, DashbaordRoutingModule
   ],
   exports: EXPORTS,
