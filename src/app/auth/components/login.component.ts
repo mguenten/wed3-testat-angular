@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
 
   public login: string;
   public password: string;
-
   public isProcessing = false;
 
   constructor(private autSvc: AuthService, private navigationSvc: NavigationService, route: ActivatedRoute) {

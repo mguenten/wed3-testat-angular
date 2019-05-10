@@ -17,20 +17,24 @@
       <form (ngSubmit)="doRegister(registerForm)" #registerForm="ngForm">
         <mat-form-field>
           <mat-label>Firstname</mat-label>
-          <input matInput pattern=".{2,}" placeholder="First name" type="text" name="firstname" required>
+          <input matInput pattern=".{2,}" placeholder="First name" type="text" name="firstname" required
+                 [(ngModel)]="firstname" #firstName="ngModel" >
         </mat-form-field><br>
 
         <mat-form-field>
           <mat-label>Lastname</mat-label>
-          <input matInput pattern=".{2,}" placeholder="Last name" type="text" name="lastname" required>
+          <input matInput pattern=".{2,}" placeholder="Last name" type="text" name="lastname" required
+                 [(ngModel)]="lastname" #lastName="ngModel" >
         </mat-form-field><br>
         <mat-form-field>
           <mat-label>Username</mat-label>
-          <input matInput pattern=".{3,}" placeholder="User" type="text" name="login" required>
+          <input matInput pattern=".{3,}" placeholder="User" type="text" name="login" required
+                 [(ngModel)]="login" #userName="ngModel" >
         </mat-form-field><br>
         <mat-form-field>
           <mat-label>Password</mat-label>
-          <input matInput pattern=".{3,}" placeholder="Password" type="password" name="password" required [(ngModel)]="password" #passWord="ngModel">
+          <input matInput pattern=".{3,}" placeholder="Password" type="password" name="password" required
+                 [(ngModel)]="password" #passWord="ngModel">
         </mat-form-field><br>
         <div *ngIf="passWord.invalid && (passWord.dirty || passWord.touched)">
           <small class="form-text text-muted" *ngIf="passWord.errors.pattern">
@@ -39,10 +43,15 @@
         </div>
         <mat-form-field>
           <mat-label>Confirm Password</mat-label>
-          <input matInput pattern=".{3,}" placeholder="Password" type="password" name="passwordConfirm" required>
+          <input matInput pattern=".{3,}" placeholder="Password" type="password" name="passwordConfirm" required
+                 ngModel="" #passWordConfirm="ngModel">
         </mat-form-field>
+        <small class="form-text text-muted"
+               *ngIf="(passWordConfirm.dirty || passWordConfirm.touched) && passWord.value != passWordConfirm.value">
+          Passwörter stimmen nicht überein.
+        </small>
         <mat-card-actions>
-          <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.form.valid">Register</button> <a href="/welcome" class="md-accent" style="float:right;">Login</a>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.form.valid">Register</button>
         </mat-card-actions>
       </form>
     </mat-card-content>
