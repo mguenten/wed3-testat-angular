@@ -9,9 +9,9 @@ import {AuthModule} from '../auth/auth.module';
 import {DashboardRoutingModule} from './dashboard-routing.module';
 import {DashboardComponent} from './components/dashboard.component';
 import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatToolbarModule} from '@angular/material';
-import {TransactionsComponent} from './components/transactions.component';
-import {TransactionListComponent} from './components/transaction-list.component';
-import {TransactionFilterComponent} from './components/transaction-filter.component';
+import {TransactionsComponent} from './components/transaction-list/transactions.component';
+import {TransactionListComponent} from './components/transaction-list/transaction-list.component';
+import {TransactionFilterComponent} from './components/transaction-list/transaction-filter.component';
 import {TransactionNewComponent} from './components/transaction-new/transaction-new.component';
 import {TransactionSiteComponent} from './components/transaction-site/transaction-site.component';
 

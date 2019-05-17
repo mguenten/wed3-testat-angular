@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Transaction} from '../../shared/models/transaction';
-import {TransactionsService} from '../../shared/resources/transactions.service';
+import {Transaction} from '../../../shared/models/transaction';
+import {TransactionsService} from '../../../shared/resources/transactions.service';
 
 @Component({
   selector: 'wed-transactions',
