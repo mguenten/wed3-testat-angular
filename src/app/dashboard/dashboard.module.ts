@@ -6,12 +6,14 @@ import {SharedModule} from '@app/shared';
 
 import {AuthModule} from '../auth/auth.module';
 
-import {DashbaordRoutingModule} from './dashboard-routing.module';
+import {DashboardRoutingModule} from './dashboard-routing.module';
 import {DashboardComponent} from './components/dashboard.component';
-import {MatCardModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatToolbarModule} from '@angular/material';
 import {TransactionsComponent} from './components/transactions.component';
 import {TransactionListComponent} from './components/transaction-list.component';
 import {TransactionFilterComponent} from './components/transaction-filter.component';
+import {TransactionNewComponent} from './components/transaction-new/transaction-new.component';
+import {TransactionSiteComponent} from './components/transaction-site/transaction-site.component';
 
 
 const EXPORTED_DECLARATIONS = [
@@ -22,6 +24,8 @@ const INTERNAL_DECLARATIONS = [
     TransactionsComponent,
     TransactionListComponent,
     TransactionFilterComponent,
+    TransactionNewComponent,
+    TransactionSiteComponent,
   ...EXPORTED_DECLARATIONS
   // Declarations (Components / Directives) which can be used inside the Module
 ];
@@ -35,7 +39,7 @@ const EXPORTS = [
   imports: [
     // Other Modules to import (imports the exported Components/Directives from the other module)
     SharedModule, FormsModule,
-    AuthModule, DashbaordRoutingModule, MatCardModule
+    AuthModule, DashboardRoutingModule, MatCardModule, MatToolbarModule, MatFormFieldModule, MatInputModule, MatButtonModule
   ],
   exports: EXPORTS,
   providers: [

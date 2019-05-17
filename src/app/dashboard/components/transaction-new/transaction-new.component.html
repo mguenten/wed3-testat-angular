@@ -1,0 +1,35 @@
+<mat-card class="example-card">
+
+  <mat-card-title>
+    <span>New Payment</span>
+  </mat-card-title>
+
+  <mat-card-content>
+    <form (ngSubmit)="doTransaction(newTransactionForm)" #newTransactionForm="ngForm">
+
+      <mat-form-field appearance="outline">
+        <mat-label>From</mat-label>
+        <input matInput placeholder="User" type="text" name="from" disabled
+               [(ngModel)]="from" #fromAccount="ngModel" >
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>To</mat-label>
+        <input matInput pattern=".{2,}" placeholder="Target Account Number" type="text" name="sendTo" required
+               [(ngModel)]="sendTo" #toSend="ngModel">
+        <mat-hint>Please specify the target account number.</mat-hint>
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Amount [CHF]</mat-label>
+        <input matInput pattern=".{2,}" placeholder="Amount in CHF" type="text" name="amount" required
+               [(ngModel)]="amount" #amountChf="ngModel">
+        <mat-hint>Please specify the amount.</mat-hint>
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!newTransactionForm.form.valid">Pay</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+
+</mat-card>
