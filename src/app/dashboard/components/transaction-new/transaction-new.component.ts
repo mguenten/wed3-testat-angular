@@ -4,6 +4,7 @@ import {NgForm} from '@angular/forms';
 import {AuthService} from '../../../auth/services/auth.service';
 import {TransactionsService} from '../../../shared/resources/transactions.service';
 import {AccountDetail} from '../../../shared/models/AccountDetail';
+import {Account} from '../../../auth/models/account';
 
 @Component({
   selector: 'wed-transaction-new',
@@ -12,10 +13,12 @@ import {AccountDetail} from '../../../shared/models/AccountDetail';
 })
 export class TransactionNewComponent implements OnInit {
 
+
   public accountDetail: AccountDetail = new AccountDetail();
+  public targetAccountDetail: AccountDetail = new AccountDetail();
 
   public from: string;
-  public sendTo: string;
+  public sendTo: number;
   public amount: number;
 
   constructor(private transactionService: TransactionsService) {
@@ -34,6 +37,12 @@ export class TransactionNewComponent implements OnInit {
       if (response) {
         this.accountDetail = response;
       }
+    });
+  }
+
+  onTargetAccountChange(accountNr: number) {
+    this.transactionService.getAccount(accountNr).subscribe((response) => {
+      this.targetAccountDetail = response;
     });
   }
 
