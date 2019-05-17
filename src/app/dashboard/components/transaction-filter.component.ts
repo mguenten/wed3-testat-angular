@@ -23,14 +23,8 @@ export class TransactionFilterComponent implements OnInit {
   }
 
   ngOnInit() {
-    const date = new Date();
-    this.currentYear = date.getFullYear();
-    this.currentMonth = date.getMonth();
-    this.years = [this.currentYear, this.currentYear - 1, this.currentYear - 2];
-
-    // Initialize table-component with the initial filter values
-    this.yearChanged.emit(this.currentYear);
-    this.monthChanged.emit(this.currentMonth);
+    const currentYear = new Date().getFullYear();
+    this.years = [currentYear, currentYear - 1, currentYear - 2];
   }
 
 }
