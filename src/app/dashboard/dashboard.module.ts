@@ -8,6 +8,8 @@ import {AuthModule} from '../auth/auth.module';
 
 import {DashbaordRoutingModule} from './dashboard-routing.module';
 import {DashboardComponent} from './components/dashboard.component';
+import {MatCardModule} from '@angular/material';
+import {TransactionsComponent} from './components/transactions.component';
 
 
 const EXPORTED_DECLARATIONS = [
@@ -15,6 +17,7 @@ const EXPORTED_DECLARATIONS = [
 ];
 const INTERNAL_DECLARATIONS = [
     DashboardComponent,
+    TransactionsComponent,
   ...EXPORTED_DECLARATIONS
   // Declarations (Components / Directives) which can be used inside the Module
 ];
@@ -28,7 +31,7 @@ const EXPORTS = [
   imports: [
     // Other Modules to import (imports the exported Components/Directives from the other module)
     SharedModule, FormsModule,
-    AuthModule, DashbaordRoutingModule
+    AuthModule, DashbaordRoutingModule, MatCardModule
   ],
   exports: EXPORTS,
   providers: [

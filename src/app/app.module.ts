@@ -51,6 +51,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   providers: [
     {provide: LOCALE_ID, useValue: 'de-CH'}
   ],
+  exports: [
+    TransactionsComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { // RootModule

@@ -14,13 +14,19 @@
     <div class="navbar-nav" *ngIf="!autSvc.hasCredentials">
       <button mat-menu-item>
         <mat-icon>transform</mat-icon>
-        <span><a type="button" routerLink="/signup"> Register</a></span>
+        <span><a type="button" routerLink="/signup">Register</a></span>
       </button>
     </div>
     <div class="navbar-nav" *ngIf="autSvc.hasCredentials">
       <button mat-menu-item>
         <mat-icon>dashboard</mat-icon>
-        <span><a type="button" routerLink="/dashboard"> Dashboard</a></span>
+        <span><a type="button" routerLink="/dashboard">Dashboard</a></span>
+      </button>
+    </div>
+    <div class="navbar-nav" *ngIf="autSvc.hasCredentials">
+      <button mat-menu-item>
+        <mat-icon>transform</mat-icon>
+        <span><a type="button" routerLink="/transactions">Transactions</a></span>
       </button>
     </div>
     <div class="navbar-nav" *ngIf="autSvc.hasCredentials">
