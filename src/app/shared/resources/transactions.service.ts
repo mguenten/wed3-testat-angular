@@ -6,12 +6,13 @@ import {catchError, map} from 'rxjs/operators';
 import {Transaction} from '../models/transaction';
 import {Credential} from '../../auth/models/credential';
 import {AccountDetail} from '../models/AccountDetail';
+import {SecurityTokenStore} from '../../auth/services/credential-management/security-token-store';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransactionsService extends ResourceBase {
-  constructor(http: HttpClient) {
+  constructor(private tokenStore: SecurityTokenStore, http: HttpClient) {
     super(http);
   }
 
@@ -33,7 +34,7 @@ export class TransactionsService extends ResourceBase {
       );
   }
 
-  public getAccountDetails(model: AccountDetail): Observable<AccountDetail> {
+  /*public getAccountDetails(model: AccountDetail): Observable<AccountDetail> {
     return this.post('/accounts', model)
       .pipe(
         map((result: any) => {
@@ -43,5 +44,16 @@ export class TransactionsService extends ResourceBase {
           return null;
         })
       );
+  }*/
+
+  public getAccountDetails(token: string =
+                             this.tokenStore.storedValue ? this.tokenStore.storedValue.token : ''): Observable<AccountDetail> {
+    return this.get(`/accounts?token=${token}`)
+      .pipe(map((result: any) => {
+        if (result) {
+          return AccountDetail.fromDto(result);
+        }
+        return null;
+      }));
   }
 }

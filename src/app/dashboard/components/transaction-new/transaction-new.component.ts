@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationService } from '@app/core';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../../../auth/services/auth.service';
+import {TransactionsService} from '../../../shared/resources/transactions.service';
+import {AccountDetail} from '../../../shared/models/AccountDetail';
 
 @Component({
   selector: 'wed-transaction-new',
@@ -10,11 +12,14 @@ import {AuthService} from '../../../auth/services/auth.service';
 })
 export class TransactionNewComponent implements OnInit {
 
+  public accountDetail: AccountDetail = new AccountDetail();
+
   public from: string;
   public sendTo: string;
   public amount: number;
 
-  constructor(private autSvc: AuthService, private navigationSvc: NavigationService) {
+  constructor(private transactionService: TransactionsService) {
+    this.getAccountDetails();
   }
 
   public doTransaction(newTransactionForm: NgForm) {
@@ -22,6 +27,14 @@ export class TransactionNewComponent implements OnInit {
       console.log('Formvalidation works: ' + newTransactionForm.value.sendTo);
     }
     return false;
+  }
+
+  public getAccountDetails() {
+    this.transactionService.getAccountDetails().subscribe((response) => {
+      if (response) {
+        this.accountDetail = response;
+      }
+    });
   }
 
   ngOnInit(): void {

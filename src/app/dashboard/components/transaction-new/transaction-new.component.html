@@ -8,8 +8,8 @@
     <form (ngSubmit)="doTransaction(newTransactionForm)" #newTransactionForm="ngForm">
 
       <mat-form-field appearance="outline">
-        <mat-label>From</mat-label>
-        <input matInput placeholder="User" type="text" name="from" disabled
+        <!--<mat-label>From</mat-label>-->
+        <input matInput placeholder="{{accountDetail.accountNr}} [{{accountDetail.amount}} CHF]" type="text" name="from" disabled
                [(ngModel)]="from" #fromAccount="ngModel" >
       </mat-form-field><br>
 
