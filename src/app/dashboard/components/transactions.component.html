@@ -1,6 +1,24 @@
-<p>
-  TestTransactionTable
-</p>
+
+<table class="table table-hover" border="1" style="border-collapse: collapse;">
+  <thead>
+  <tr>
+    <th *ngIf="includeDate">Datum</th>
+    <th>Quelle</th>
+    <th>Ziel</th>
+    <th>Betrag [CHF]</th>
+    <th>Kontostand [CHF]</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let transaction of transactions">
+    <td *ngIf="includeDate">{{transaction.date | date}}</td>
+    <td>{{transaction.from}}</td>
+    <td>{{transaction.target}}</td>
+    <td>{{transaction.amount | currency: 'CHF'}}</td>
+    <td>{{transaction.total | currency: 'CHF'}}</td>
+  </tr>
+  </tbody>
+</table>
 
 
 

@@ -10,6 +10,8 @@ import {DashbaordRoutingModule} from './dashboard-routing.module';
 import {DashboardComponent} from './components/dashboard.component';
 import {MatCardModule} from '@angular/material';
 import {TransactionsComponent} from './components/transactions.component';
+import {TransactionListComponent} from './components/transaction-list.component';
+import {TransactionFilterComponent} from './components/transaction-filter.component';
 
 
 const EXPORTED_DECLARATIONS = [
@@ -18,6 +20,8 @@ const EXPORTED_DECLARATIONS = [
 const INTERNAL_DECLARATIONS = [
     DashboardComponent,
     TransactionsComponent,
+    TransactionListComponent,
+    TransactionFilterComponent,
   ...EXPORTED_DECLARATIONS
   // Declarations (Components / Directives) which can be used inside the Module
 ];
