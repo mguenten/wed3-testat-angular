@@ -4,6 +4,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {Transaction} from '../models/transaction';
+import {Credential} from '../../auth/models/credential';
+import {AccountDetail} from '../models/AccountDetail';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +30,18 @@ export class TransactionsService extends ResourceBase {
           return [];
         }),
         catchError((error: any) => of<Transaction[]>(null))
+      );
+  }
+
+  public getAccountDetails(model: AccountDetail): Observable<AccountDetail> {
+    return this.post('/accounts', model)
+      .pipe(
+        map((result: any) => {
+          if (result) {
+            return AccountDetail.fromDto(result);
+          }
+          return null;
+        })
       );
   }
 }
