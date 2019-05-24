@@ -12,8 +12,6 @@ import {Account} from '../../../auth/models/account';
   styleUrls: ['./transaction-new.component.scss']
 })
 export class TransactionNewComponent implements OnInit {
-
-
   public accountDetail: AccountDetail = new AccountDetail();
   public targetAccountDetail: AccountDetail = new AccountDetail();
 
@@ -27,8 +25,13 @@ export class TransactionNewComponent implements OnInit {
 
   public doTransaction(newTransactionForm: NgForm) {
     if (newTransactionForm && newTransactionForm.valid) {
-      console.log('Formvalidation works: ' + newTransactionForm.value.sendTo);
-      this.transactionService.transfer(this.sendTo, this.amount);
+      this.transactionService.transfer(this.sendTo, this.amount).subscribe((response) => {
+        this.sendTo = null;
+        this.amount = null;
+        this.targetAccountDetail = null;
+        this.getAccountDetails();
+        this.transactionService.transactionTriggered.emit();
+      });
     }
     return false;
   }
@@ -42,9 +45,13 @@ export class TransactionNewComponent implements OnInit {
   }
 
   onTargetAccountChange(accountNr: number) {
-    this.transactionService.getAccount(accountNr).subscribe((response) => {
-      this.targetAccountDetail = response;
-    });
+    if (accountNr > 0) {
+      this.transactionService.getAccount(accountNr).subscribe((response) => {
+        this.targetAccountDetail = response;
+      }, (error => {
+        this.targetAccountDetail = null;
+      }));
+    }
   }
 
   ngOnInit(): void {

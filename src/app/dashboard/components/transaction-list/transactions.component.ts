@@ -1,13 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Transaction} from '../../../shared/models/transaction';
 import {TransactionsService} from '../../../shared/resources/transactions.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'wed-transactions',
   templateUrl: './transactions.component.html',
   styleUrls: ['./transactions.component.scss']
 })
-export class TransactionsComponent implements OnInit {
+export class TransactionsComponent implements OnInit, OnDestroy {
+  private transactionSubcription: Subscription;
+
   public transactions: Transaction[] = [];
 
   @Input() includeDate: boolean;
@@ -19,6 +22,9 @@ export class TransactionsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.transactionSubcription = this.transactionsResource.transactionTriggered.subscribe(() => {
+      this.update();
+    });
     this.update();
   }
 
@@ -43,6 +49,9 @@ export class TransactionsComponent implements OnInit {
       this.transactionsResource.getTransactions('', '', Number.MAX_SAFE_INTEGER)
         .subscribe(ts => this.transactions = ts);
     }
+  }
+
+  ngOnDestroy(): void {
   }
 
 }

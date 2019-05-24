@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {ResourceBase} from '@app/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
@@ -11,6 +11,8 @@ import {SecurityToken, SecurityTokenStore} from '../../auth/services/credential-
   providedIn: 'root'
 })
 export class TransactionsService extends ResourceBase {
+  public transactionTriggered = new EventEmitter();
+
   constructor(private tokenStore: SecurityTokenStore, http: HttpClient) {
     super(http);
   }
@@ -45,13 +47,7 @@ export class TransactionsService extends ResourceBase {
   }
 
   public transfer(target: number, amount: number, token: SecurityToken = this.tokenStore.storedValue) {
-    console.log(target, amount);
-    return this.post(`/accounts/transactions`, {target, amount})
-      .subscribe((value => {
-        console.log(value);
-      }), error => {
-        console.log(error);
-      });
+    return this.post(`/accounts/transactions`, {target, amount});
   }
 
   public getAccount(accountNr: number, token: string =
