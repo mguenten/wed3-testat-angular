@@ -15,9 +15,11 @@
 
       <mat-form-field appearance="outline">
         <mat-label>To</mat-label>
-        <input matInput pattern=".{2,}" placeholder="Target Account Number" type="text" name="sendTo" required
-               [(ngModel)]="sendTo" #toSend="ngModel">
-        <mat-hint>Please specify the target account number.</mat-hint>
+        <input matInput pattern=".{7,}" placeholder="Target Account Number" type="text" name="sendTo" required
+               [(ngModel)]="sendTo" #toSend="ngModel"(keyup)="onTargetAccountChange($event.target.value)">
+        <mat-hint>{{targetAccountDetail? targetAccountDetail.firstname + ' ' + targetAccountDetail.lastname :
+          "Please specify a valid target account."}}
+        </mat-hint>
       </mat-form-field><br>
 
       <mat-form-field appearance="outline">

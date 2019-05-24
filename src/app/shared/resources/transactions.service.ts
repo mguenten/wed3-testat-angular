@@ -33,18 +33,6 @@ export class TransactionsService extends ResourceBase {
       );
   }
 
-  /*public getAccountDetails(model: AccountDetail): Observable<AccountDetail> {
-    return this.post('/accounts', model)
-      .pipe(
-        map((result: any) => {
-          if (result) {
-            return AccountDetail.fromDto(result);
-          }
-          return null;
-        })
-      );
-  }*/
-
   public getAccountDetails(token: string =
                              this.tokenStore.storedValue ? this.tokenStore.storedValue.token : ''): Observable<AccountDetail> {
     return this.get(`/accounts?token=${token}`)
@@ -65,4 +53,16 @@ export class TransactionsService extends ResourceBase {
         console.log(error);
       });
   }
+
+  public getAccount(accountNr: number, token: string =
+    this.tokenStore.storedValue ? this.tokenStore.storedValue.token : ''): Observable<AccountDetail> {
+    return this.get(`/accounts/${accountNr}`)
+      .pipe(map((result: any) => {
+        if (result) {
+          return AccountDetail.fromDto(result);
+        }
+        return null;
+      }));
+  }
+
 }
