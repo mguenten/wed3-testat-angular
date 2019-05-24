@@ -4,9 +4,8 @@ import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {Transaction} from '../models/transaction';
-import {Credential} from '../../auth/models/credential';
 import {AccountDetail} from '../models/AccountDetail';
-import {SecurityTokenStore} from '../../auth/services/credential-management/security-token-store';
+import {SecurityToken, SecurityTokenStore} from '../../auth/services/credential-management/security-token-store';
 
 @Injectable({
   providedIn: 'root'
@@ -55,5 +54,15 @@ export class TransactionsService extends ResourceBase {
         }
         return null;
       }));
+  }
+
+  public transfer(target: number, amount: number, token: SecurityToken = this.tokenStore.storedValue) {
+    console.log(target, amount);
+    return this.post(`/accounts/transactions`, {target, amount})
+      .subscribe((value => {
+        console.log(value);
+      }), error => {
+        console.log(error);
+      });
   }
 }

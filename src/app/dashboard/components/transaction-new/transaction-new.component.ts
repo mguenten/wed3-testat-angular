@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationService } from '@app/core';
+import {Component, OnInit} from '@angular/core';
+import {NavigationService} from '@app/core';
 import {NgForm} from '@angular/forms';
 import {AuthService} from '../../../auth/services/auth.service';
 import {TransactionsService} from '../../../shared/resources/transactions.service';
@@ -15,7 +15,7 @@ export class TransactionNewComponent implements OnInit {
   public accountDetail: AccountDetail = new AccountDetail();
 
   public from: string;
-  public sendTo: string;
+  public sendTo: number;
   public amount: number;
 
   constructor(private transactionService: TransactionsService) {
@@ -25,6 +25,7 @@ export class TransactionNewComponent implements OnInit {
   public doTransaction(newTransactionForm: NgForm) {
     if (newTransactionForm && newTransactionForm.valid) {
       console.log('Formvalidation works: ' + newTransactionForm.value.sendTo);
+      this.transactionService.transfer(this.sendTo, this.amount);
     }
     return false;
   }
