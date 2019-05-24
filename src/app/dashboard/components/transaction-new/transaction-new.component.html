@@ -24,7 +24,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Amount [CHF]</mat-label>
-        <input matInput pattern=".{2,}" placeholder="Amount in CHF" type="text" name="amount" required
+        <input matInput pattern=".{1,}" placeholder="Amount in CHF" type="text" name="amount" required
                [(ngModel)]="amount" #amountChf="ngModel">
         <mat-hint>Please specify the amount.</mat-hint>
       </mat-form-field>

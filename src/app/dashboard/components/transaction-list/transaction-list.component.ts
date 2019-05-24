@@ -7,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class TransactionListComponent implements OnInit {
 
+  @Input() numberOfRows = Number.MAX_SAFE_INTEGER;
   @Input() showFilter = true;
   @Input() title = 'Konto Bewegungen';
 

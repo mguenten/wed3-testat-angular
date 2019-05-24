@@ -2,6 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Transaction} from '../../../shared/models/transaction';
 import {TransactionsService} from '../../../shared/resources/transactions.service';
 import {Subscription} from 'rxjs';
+import {TransactionListComponent} from './transaction-list.component';
 
 @Component({
   selector: 'wed-transactions',
@@ -14,6 +15,7 @@ export class TransactionsComponent implements OnInit, OnDestroy {
   public transactions: Transaction[] = [];
 
   @Input() includeDate: boolean;
+  @Input() numberOfRows: number;
 
   public forYear: number = null;
   public forMonth: number = null;
@@ -43,10 +45,10 @@ export class TransactionsComponent implements OnInit, OnDestroy {
       const fromDate = new Date(this.forYear, this.forMonth).toISOString();
       // The month will wrap around (13 is January)
       const toDate = new Date(this.forYear, this.forMonth + 1).toISOString();
-      this.transactionsResource.getTransactions(fromDate, toDate, Number.MAX_SAFE_INTEGER)
+      this.transactionsResource.getTransactions(fromDate, toDate, this.numberOfRows)
         .subscribe(ts => this.transactions = ts);
     } else {
-      this.transactionsResource.getTransactions('', '', Number.MAX_SAFE_INTEGER)
+      this.transactionsResource.getTransactions('', '', this.numberOfRows)
         .subscribe(ts => this.transactions = ts);
     }
   }
